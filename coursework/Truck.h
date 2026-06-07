@@ -4,7 +4,7 @@
 class Truck : public Vehicle
 {
 private:
-    double liftingCapacity; // ֲאםעאזמן³הימלם³סעü
+    double liftingCapacity;
 
 public:
     Truck(double weight_, double maxSpeed_, double fuelConsumption_, double liftingCapacity_);

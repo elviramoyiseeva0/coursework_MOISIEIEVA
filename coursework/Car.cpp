@@ -18,7 +18,18 @@ Car::Car(double weight_, double maxSpeed_, double fuelConsumption_, double maxBa
 
 void Car::displayInfo() const
 {
-    std::cout << "[Car] Number of passengers: " << passengerCount << ", Max baggage: " << maxBaggage << " kg\n";
+    std::string carSegments[] = { "A", "B", "C", "D", "E", "F", "J", "S", "M" };
+    std::string bodyTypes[] = { "Sedan", "Wagon", "Cabriolet" };
+    std::string seatUpholsteryTypes[] = { "Cloth", "Suede", "Vinyl", "Alcantara", "Eco-leather", "Genuine leather" };
+
+    std::cout << "[Car]         Weight: " << getWeight() << " kg\n";
+    std::cout << "           Max Speed: " << getMaxSpeed() << " km/h\n";
+    std::cout << "    Fuel Consumption: " << getFuelConsumption() << " L/100km\n";
+    std::cout << "         Max Baggage: " << maxBaggage << " kg\n";
+    std::cout << "         Car Segment: " << carSegments[carSegment] << "\n";
+    std::cout << "           Body Type: " << bodyTypes[bodyType] << "\n";
+    std::cout << "     Passenger Count: " << passengerCount << "\n";
+    std::cout << "Seat Upholstery Type: " << seatUpholsteryTypes[seatUpholsteryType] << std::endl;
 }
 int Car::calculateComfort() const
 {

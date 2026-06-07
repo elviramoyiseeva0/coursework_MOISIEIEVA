@@ -13,7 +13,10 @@ Truck::Truck(double weight_, double maxSpeed_, double fuelConsumption_, double l
 
 void Truck::displayInfo() const
 {
-    std::cout << "[Truck] Lifting capacity: " << liftingCapacity << " kg\n";
+    std::cout << "[Truck]   Weight: " << getWeight() << " kg\n";
+    std::cout << "       Max Speed: " << getMaxSpeed() << " km/h\n";
+    std::cout << "Fuel Consumption: " << getFuelConsumption() << " L/100km\n";
+    std::cout << "Lifting capacity: " << liftingCapacity << " kg" << std::endl;
 }
 
 int Truck::calculateComfort() const

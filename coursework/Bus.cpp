@@ -1,6 +1,7 @@
 #include "Bus.h"
 #include <iostream>
 #include <stdexcept>
+
 Bus::Bus(double weight_, double maxSpeed_, double fuelConsumption_, int passengerCount_, bool isHasAirConditioning_, bool isHasFoldingSeats_, int convenienceOfVisions_, double maxBaggagePerPassenger_)
     : Vehicle(weight_, maxSpeed_, fuelConsumption_) {
     if (passengerCount_ <= 0 || convenienceOfVisions_ < 1 || convenienceOfVisions_ > 10 || maxBaggagePerPassenger_ < 0)
@@ -16,7 +17,14 @@ Bus::Bus(double weight_, double maxSpeed_, double fuelConsumption_, int passenge
 
 void Bus::displayInfo() const
 {
-    std::cout << "[Bus] Number of passangers: " << passengerCount << ", Air conditioning: " << (isHasAirConditioning ? "Yes" : "No") << "\n";
+    std::cout << "[Bus]               Weight: " << getWeight() << " kg\n";
+    std::cout << "                 Max Speed: " << getMaxSpeed() << " km/h\n";
+    std::cout << "          Fuel Consumption: " << getFuelConsumption() << " L/100km\n";
+    std::cout << "                Passengers: " << passengerCount << "\n";
+    std::cout << "          Air Conditioning: " << (isHasAirConditioning ? "Yes" : "No") << "\n";
+    std::cout << "             Folding Seats: " << (isHasFoldingSeats ? "Yes" : "No") << "\n";
+    std::cout << "              Base Comfort: " << convenienceOfVisions << "/10\n";
+    std::cout << " Max Baggage Per Passenger: " << maxBaggagePerPassenger << " kg" << std::endl;
 }
 
 int Bus::calculateComfort() const

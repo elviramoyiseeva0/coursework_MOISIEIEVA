@@ -7,8 +7,10 @@ Motorcycle::Motorcycle(double weight_, double maxSpeed_, double fuelConsumption_
 
 void Motorcycle::displayInfo() const
 {
-    std::cout << "[Motorcycle] Weight: " << getWeight() << " kg, Max speed: " << getMaxSpeed()
-        << " km/h, Sidecar: " << (isHasASidecar ? "Yes" : "No") << "\n";
+    std::cout << "[Motorcycle] Weight: " << getWeight() << " kg\n";
+    std::cout << "          Max Speed: " << getMaxSpeed() << " km/h\n";
+    std::cout << "   Fuel Consumption: " << getFuelConsumption() << " L/100km\n";
+    std::cout << "            Sidecar: " << (isHasASidecar ? "Yes" : "No") << std::endl;
 }
 
 int Motorcycle::calculateComfort() const

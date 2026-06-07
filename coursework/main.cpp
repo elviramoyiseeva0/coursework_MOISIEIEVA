@@ -30,12 +30,25 @@ int main()
         displayMenu();
         std::cin >> choice;
 
+        if (std::cin.fail())
+        {
+            std::cin.clear(); 
+            std::cin.ignore(10000, '\n');
+            std::cout << "\nERROR: Invalid input! Please enter a number.\n";
+            continue;
+        }
+        if (choice < 0 || choice > 6)
+        {
+            std::cout << "\nERROR: Invalid menu choice! Please enter a number from 0 to 6.\n";
+            continue;
+        }
+
         try
         {
             if (choice == 1)
             {
                 double weight, maxSpeed, fuelConsumption, maxBaggage;
-                int passengerCount;
+                int passengerCount, segment, body, upholstery;
 
                 std::cout << "\n--- Enter parameters for Car ---\n";
 
@@ -54,7 +67,21 @@ int main()
                 std::cout << "Passenger Count: ";
                 std::cin >> passengerCount;
 
-                transportSystem.addVehicle(new Car(weight, maxSpeed, fuelConsumption, maxBaggage, SEGMENT_B, SEDAN, passengerCount, ALCANTARA));
+                std::cout << "Car Segment (0-A, 1-B, 2-C, 3-D, 4-E, 5-F, 6-J, 7-S, 8-M): ";
+                std::cin >> segment;
+
+                std::cout << "Body Type (0-Sedan, 1-Wagon, 2-Cabriolet): ";
+                std::cin >> body;
+
+                std::cout << "Seat Upholstery (0-Cloth, 1-Suede, 2-Vinyl, 3-Alcantara, 4-Eco_Leather, 5-Genuine_Leather): ";
+                std::cin >> upholstery;
+
+                if (segment < 0 || segment > 8 || body < 0 || body > 2 || upholstery < 0 || upholstery > 5)
+                {
+                    throw std::invalid_argument("Invalid choice for segment, body, or upholstery! Please enter correct numbers.");
+                }
+
+                transportSystem.addVehicle(new Car(weight, maxSpeed, fuelConsumption, maxBaggage, static_cast<CarSegment>(segment), static_cast<BodyType>(body), passengerCount, static_cast<SeatUpholsteryType>(upholstery)));
 
                 std::cout << "Car added successfully!" << std::endl;
             }

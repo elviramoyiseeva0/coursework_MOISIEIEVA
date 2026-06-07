@@ -17,7 +17,7 @@ private:
 public:
     Car(double weight_, double maxSpeed_, double fuelConsumption_, double maxBaggage_, CarSegment carSegment_, BodyType bodyType_, int passengerCount_, SeatUpholsteryType seatUpholsteryType_);
 
-    void displayInfo() const override;
+    void displayInfo() const override; 
     int calculateComfort() const override;
     int getPassengerCapacity() const override;
     double getCargoCapacity() const override;
